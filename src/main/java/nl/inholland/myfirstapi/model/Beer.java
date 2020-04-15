@@ -23,7 +23,9 @@ public class Beer {
     }
 
     public void setRating(int rating){
-        this.rating = rating;
+        if (rating < 11 || rating > 0){
+            this.rating = rating;
+        }
     }
 
     public long getId() {
