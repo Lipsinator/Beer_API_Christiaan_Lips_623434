@@ -30,11 +30,15 @@ public class BeerController {
         return ResponseEntity.status(200).body(service.getAllBeers());
     }
 
-    @RequestMapping(value = "/ratingFrom/{rating}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/rating", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Beer>> getAllSortedBeers(){
+        return ResponseEntity.status(200).body(service.getAllSortedRatingBeers());
+    }
+
+    @RequestMapping(value = "/rating/{rating}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Beer>> getAllFilteredBeers(@PathVariable("rating") Integer rating){
         List<Beer> allBeers = service.getAllBeers();
         List<Beer> ratedBeers = new ArrayList<Beer>();
-
         for (Beer beer: allBeers) {
             if (beer.getRating() >= rating){
                 ratedBeers.add(beer);

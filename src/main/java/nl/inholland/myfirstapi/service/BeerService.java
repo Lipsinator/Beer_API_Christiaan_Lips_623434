@@ -27,6 +27,7 @@ public class BeerService {
                         new Beer(9L, "Hoop awesome autumn", "Bock", 3, 10)
                 );
 
+        Collections.sort(beers, (b1, b2) -> b1.getPrice() - b2.getPrice());
     }
 
     public List<Beer> getAllBeers(){
@@ -39,5 +40,10 @@ public class BeerService {
             brands.add(beer.getBrand().toLowerCase());
         }
         return brands;
+    }
+
+    public List<Beer> getAllSortedRatingBeers() {
+        Collections.sort(beers, (b1, b2) -> b2.getRating() - b1.getRating());
+        return this.beers;
     }
 }
