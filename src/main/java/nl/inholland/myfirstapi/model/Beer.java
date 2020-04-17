@@ -4,13 +4,13 @@ public class Beer {
     private long id;
     private String brand;
     private String type;
-    private double price;
+    private int price;
     private int rating;
 
     public Beer() {
     }
 
-    public Beer(long id, String brand, String type, double price, int rating) {
+    public Beer(long id, String brand, String type, int price, int rating) {
         this.id = id;
         this.brand = brand;
         this.type = type;
@@ -52,11 +52,11 @@ public class Beer {
         this.type = type;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
